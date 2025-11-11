@@ -24,10 +24,4 @@ This is a simple **console-based Java project** that demonstrates the **core Obj
 
 ---
 
-##  How to Run
-1. Clone this repository or download the `.java` file.  
-2. Open it in any Java IDE (VS Code, IntelliJ, or Eclipse).  
-3. Compile and run:
-   ```bash
-   javac BankManagement.java
-   java BankManagement
+
