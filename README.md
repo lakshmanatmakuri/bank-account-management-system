@@ -24,4 +24,16 @@ This is a simple **console-based Java project** that demonstrates the **core Obj
 
 ---
 
+---
+
+✅ **How to use it:**
+1. Go to your `bank-account-management-system` repository.  
+2. Open the `README.md` file in edit mode (you already did 👏).  
+3. Paste the content above.  
+4. Scroll down and click **Commit changes** (green button).  
+
+---
+
+Would you like me to give you **README.md templates** for your *Tic Tac Toe*, *Grade Calculator*, and *Portfolio* repos too — so all your GitHub projects look uniform and professional?
+
 
