@@ -28,7 +28,7 @@ This is a simple **console-based Java project** that demonstrates the **core Obj
 **Lakshman Atmakuri**  
 🎓 3rd Semester, Information Science & Engineering  
 🏫 R.V. College of Engineering, Bangalore  
-📧 lakshmanatmakuri192@gmail.com  
+📧 lakshmanatmakuri14@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/lakshman-atmakuri-134a52339)
 
 ---
