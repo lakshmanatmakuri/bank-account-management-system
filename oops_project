@@ -1,0 +1,132 @@
+import java.util.Scanner;
+
+// Abstract class (Abstraction)
+abstract class BankAccount {
+    private String accountHolder;
+    private double balance;
+
+    // Constructor
+    public BankAccount(String accountHolder, double balance) {
+        this.accountHolder = accountHolder;
+        this.balance = balance;
+    }
+
+    // Encapsulation - getters and setters
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: ₹" + amount);
+    }
+
+    public void withdraw(double amount) {
+        if (amount > balance) {
+            System.out.println("Insufficient balance!");
+        } else {
+            balance -= amount;
+            System.out.println("Withdrawn: ₹" + amount);
+        }
+    }
+
+    // Abstract method (Abstraction + Polymorphism)
+    public abstract void calculateInterest();
+
+    // Common display method
+    public void displayDetails() {
+        System.out.println("Account Holder: " + accountHolder);
+        System.out.println("Balance: ₹" + balance);
+    }
+}
+
+// Inheritance + Polymorphism
+class SavingsAccount extends BankAccount {
+    private double interestRate = 0.05; // 5%
+
+    public SavingsAccount(String accountHolder, double balance) {
+        super(accountHolder, balance);
+    }
+
+    @Override
+    public void calculateInterest() {
+        double interest = getBalance() * interestRate;
+        System.out.println("Interest for Savings Account: ₹" + interest);
+    }
+}
+
+class CurrentAccount extends BankAccount {
+    private double overdraftLimit = 5000;
+
+    public CurrentAccount(String accountHolder, double balance) {
+        super(accountHolder, balance);
+    }
+
+    @Override
+    public void calculateInterest() {
+        System.out.println("No interest for Current Account.");
+    }
+
+    public void useOverdraft(double amount) {
+        if (amount <= overdraftLimit) {
+            System.out.println("Using overdraft: ₹" + amount);
+        } else {
+            System.out.println("Overdraft limit exceeded!");
+        }
+    }
+}
+
+// Main class
+public class BankManagement {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Account Holder Name: ");
+        String name = sc.nextLine();
+
+        System.out.println("Choose Account Type: 1. Savings  2. Current");
+        int choice = sc.nextInt();
+
+        BankAccount account;
+
+        if (choice == 1) {
+            account = new SavingsAccount(name, 10000);
+        } else {
+            account = new CurrentAccount(name, 20000);
+        }
+
+        while (true) {
+            System.out.println("\n--- BANK MENU ---");
+            System.out.println("1. Deposit\n2. Withdraw\n3. Display Details\n4. Calculate Interest\n5. Exit");
+            System.out.print("Enter your choice: ");
+            int opt = sc.nextInt();
+
+            switch (opt) {
+                case 1:
+                    System.out.print("Enter amount to deposit: ");
+                    account.deposit(sc.nextDouble());
+                    break;
+                case 2:
+                    System.out.print("Enter amount to withdraw: ");
+                    account.withdraw(sc.nextDouble());
+                    break;
+                case 3:
+                    account.displayDetails();
+                    break;
+                case 4:
+                    account.calculateInterest();
+                    break;
+                case 5:
+                    System.out.println("Thank you for banking with us!");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
+    }
+}
